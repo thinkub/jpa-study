@@ -11,13 +11,13 @@ import java.time.LocalDateTime;
 
 @Getter
 @Entity
-@Table(name = "member")
+@Table(name = "member", uniqueConstraints = {@UniqueConstraint(name = "name_age_unique", columnNames = {"name", "age"})})
 public class Member {
     @Id
     @Column(name = "id")
     private String id;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false, length = 10)
     private String userName;
 
     private Integer age;
